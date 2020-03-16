@@ -20,7 +20,11 @@ function newTodo() {
   uncheckedCountSpan.innerHTML=unCheckedCounter  
   
   // geeting the to-do text from the input textbox
-  const toDoText=document.getElementById("txt").value
+  
+                /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+                /*1-Check if the text field if not empty else alert please enther somethind to do*/
+                /*2- clear the text field afteer get the text and leave the place holed "What Do You Want To Do?"*/
+const toDoText=document.getElementById("txt").value
   toDoText.className=classNames.TODO_TEXT
   
   //MAKING THE TO DO LIST
@@ -58,6 +62,7 @@ function DeleteFunction(btn){
     if(confirm("are you sure?")){
           //ubdate un checked counter
               var  cbSibling=btn.previousElemtentSibling
+              /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
               /*we need to check if the uncheccked counter counts this element or not
                * call ubdateUncheckedCounter function*/
               
