@@ -15,18 +15,14 @@ var checkboxId=0
 
 //new Todo Button Click
 function newTodo() {
-  itemsCounter++
-  unCheckedCounter++
-  uncheckedCountSpan.innerHTML=unCheckedCounter  
-  
-  // geeting the to-do text from the input textbox
-  
-                /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-                /*1-Check if the text field if not empty else alert please enther somethind to do*/
-                /*2- clear the text field afteer get the text and leave the place holed "What Do You Want To Do?"*/
-const toDoText=document.getElementById("txt").value
-  toDoText.className=classNames.TODO_TEXT
-  
+     
+  // getting the to-do text from the input textbox
+ const toDoText=document.getElementById("txt").value
+ // check if there is a something to do
+     if (!toDoText) {
+         alert('please enter something to do! ')
+    }else{
+         toDoText.className=classNames.TODO_TEXT
   //MAKING THE TO DO LIST
   const node=document.createElement("li")
   node.className=classNames.TODO_ITEM
@@ -40,10 +36,7 @@ const toDoText=document.getElementById("txt").value
   checkBoxNode.className=classNames.TODO_CHECKBOX
   
   //Add text and ckeckBox to the list item node
-     node.innerHTML=checkBoxNode.outerHTML+toDoText
-  
-  //update tem Counter span
-    itemCountSpan.innerHTML=itemsCounter
+     node.innerHTML=checkBoxNode.outerHTML+toDoText 
 
 //create Delete Button
     var deleteBtn=document.createElement("button")
@@ -55,7 +48,20 @@ const toDoText=document.getElementById("txt").value
     node.appendChild(deleteBtn)
 
 // add the list item node to the un oredered list
-      list.appendChild(node)}
+      list.appendChild(node)    
+     
+  //update the Counter span
+    itemsCounter++
+    unCheckedCounter++
+    itemCountSpan.innerHTML=itemsCounter
+    uncheckedCountSpan.innerHTML=unCheckedCounter 
+    
+    //clear the textfield and set its placeholeder
+    document.getElementById("txt").value=''
+         }
+        
+  
+  }
 
 //the Delete item Function
 function DeleteFunction(btn){
