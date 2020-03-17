@@ -65,16 +65,21 @@ function newTodo() {
 
 //the Delete item Function
 function DeleteFunction(btn){
-    if(confirm("are you sure?")){
-          //ubdate un checked counter
-              var  cbSibling=btn.previousElemtentSibling
-              /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-              /*we need to check if the uncheccked counter counts this element or not
-               * call ubdateUncheckedCounter function*/
-              
-              // remove the list element
+    if(confirm("are you sure?")){           
+        // get the list item
             var btnListItem= btn.parentNode
+            
+            //ubdate unchecked counter
+            var cb=btnListItem.firstElementChild
+            if(!cb.checked){
+              cb.checked='true'
+              ubdateUncheckedCounter(cb)
+            }
+            
+              // remove the list element
               list.removeChild(btnListItem)
+              
+             //ubdate un itemns counter
               itemsCounter-=1             
             
     }               
